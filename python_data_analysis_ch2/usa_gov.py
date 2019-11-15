@@ -1,7 +1,9 @@
 import json
+
 from collections import defaultdict,Counter
 from pandas import DataFrame,Series
-import pandas as pd;import numpy as np
+import pandas as pd
+import numpy as np
 
 #对各个时区的数量进行统计
 def get_counts(sequence):
@@ -15,6 +17,7 @@ def top_counts(count_dict,n):
     value_key_pairs = [(v,k) for k,v in count_dict.items()]   #列表里的每个元素是一个元组
     value_key_pairs.sort()
     return value_key_pairs[-n:]
+
 
 #Countre类排序-----获取数量前10的数据
 def top_Counter_counts(count_dict,n):
@@ -88,7 +91,7 @@ if __name__ == "__main__":
     print(type(indexer))                  #<class 'pandas.core.series.Series'>
     count_subset= agg_counts.take(indexer)[-10:]   #按照indexer的排序去最后10行，即取window+not window的值最大的10行
     print(count_subset)
-  
+
 
   
   
